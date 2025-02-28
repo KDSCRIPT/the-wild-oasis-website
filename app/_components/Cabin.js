@@ -7,7 +7,7 @@ function Cabin({ cabin }) {
     cabin;
   return (
     <div className="mb-24 grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 px-10 py-3">
-      <div className="relative -translate-x-3 scale-[1.15]">
+      <div className="relative -translate-x-3 scale-[1]">
         <Image
           src={image}
           fill
@@ -17,7 +17,7 @@ function Cabin({ cabin }) {
       </div>
 
       <div>
-        <h3 className="mb-5 w-[150%] translate-x-[-254px] bg-primary-950 p-6 pb-1 text-7xl font-black text-accent-100">
+        <h3 className="mb-5 w-[110%] translate-x-[-50px] bg-primary-950 p-6 pb-1 text-7xl font-black text-accent-100">
           Cabin {name}
         </h3>
 
