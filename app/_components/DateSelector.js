@@ -5,7 +5,7 @@ import {
   isSameDay,
   isWithinInterval,
 } from "date-fns";
-import { DayPicker } from "react-day-picker";
+import { DayPicker, getDefaultClassNames } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { useReservation } from "@/app/_components/ReservationContext";
 
@@ -25,13 +25,20 @@ function DateSelector({ settings, cabin, bookedDates }) {
   const { regularPrice, discount } = cabin;
   const numNights = differenceInDays(displayRange.to, displayRange.from);
   const cabinPrice = numNights * (regularPrice - discount);
+  const defaultClassNames = getDefaultClassNames();
   // SETTINGS
   const { minBookingLength, maxBookingLength } = settings;
 
   return (
     <div className="flex flex-col justify-between">
       <DayPicker
-        className="place-self-center pt-12"
+        classNames={{
+          //today: `border-amber-500`, // Add a border to today's date
+          //selected: `bg-amber-500 border-amber-500 text-white`, // Highlight the selected day
+          root: `${defaultClassNames.root} place-self-center pt-12`, // Add a shadow to the root element
+          //chevron: `${defaultClassNames.chevron} fill-amber-500`, // Change the color of the chevron
+        }}
+        // className="place-self-center pt-12"
         mode="range"
         onSelect={setRange}
         selected={displayRange}
